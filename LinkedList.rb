@@ -1,3 +1,4 @@
+require_relative 'Node.rb'
 class LinkedList
   # attr_accessor :name
   attr_reader :head, :tail
@@ -6,7 +7,8 @@ class LinkedList
     @tail = nil
   end
 
-  def append(node)
+  def append(value)
+    node = Node.new(value)
     if @tail.nil?
       @head = node
       @tail = node
@@ -16,7 +18,8 @@ class LinkedList
     end
   end
   
-  def prepend(node)
+  def prepend(value)
+    node = Node.new(value)
     if @head.nil?
       @head = node
       @tail = node
