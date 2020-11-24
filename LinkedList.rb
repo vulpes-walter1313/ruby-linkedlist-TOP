@@ -30,6 +30,17 @@ class LinkedList
   end
   
   def size
+    size = 0
+    current_node = @head
+    loop do
+      if current_node.nil?
+        break
+      else
+        size += 1
+        current_node = current_node.next
+      end
+    end
+    size
   end
   
   def at(index)
