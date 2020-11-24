@@ -58,6 +58,20 @@ class LinkedList
   end
   
   def to_s
+    current_node = @head
+    loop do
+      if current_node.nil?
+        print "nil\n"
+      else
+        print "( #{current_node.data} ) -> "
+        if current_node.next.nil?
+          print "nil\n"
+          break
+        else
+          current_node = current_node.next
+        end
+      end
+    end
   end
 
 
