@@ -73,6 +73,7 @@ class LinkedList
     loop do
       if current_node.nil?
         print "nil\n"
+        break
       else
         print "( #{current_node.data} ) -> "
         if current_node.next.nil?
