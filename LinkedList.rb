@@ -44,6 +44,23 @@ class LinkedList
   end
   
   def at(index)
+    current_node = @head
+    return nil if current_node.nil?
+    
+    if index > self.size
+      puts "Index query greater than size of LinkedList"
+      return nil
+    else
+      count = 0
+      until current_node.nil?
+        if count == index
+          return current_node
+        else
+          count += 1
+          current_node = current_node.next
+        end
+      end
+    end
   end
 
   def pop
