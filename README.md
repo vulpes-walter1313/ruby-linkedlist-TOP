@@ -34,3 +34,16 @@ nil
 ```
 
 If there is no items in the list it will simply print `nil`
+
+## at(index) Method
+This method returns the node in that index value. if you wish to print the data inside it must be called like so:
+
+```Ruby
+names = LinkedList.new
+names.append "John Doe"
+names.append "Jane Doe"
+puts names.at(0).data # outputs: John Doe
+```
+
+## find(value)
+This method simply returns the index number of the first instance where a node has `@data == value`.
