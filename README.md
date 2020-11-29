@@ -47,3 +47,9 @@ puts names.at(0).data # outputs: John Doe
 
 ## find(value)
 This method simply returns the index number of the first instance where a node has `@data == value`.
+
+## insert_at(value, index)
+This method inserts a new node with `value` as the `@data` into the `index` of the list. This has two distinct conditions however.
+
+1. If `index == 0` then the new node is `self.prepend(value)`
+2. If `index >= self.size` then the new node is `self.append(value)`
