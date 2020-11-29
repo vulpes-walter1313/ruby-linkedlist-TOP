@@ -64,25 +64,50 @@ class LinkedList
   end
 
   def pop
+    current_node = @head
+    popped_value = nil
+    if self.size >= 2
+      second_to_last_node = self.at(self.size - 2)
+      second_to_last_node.next = nil
+      popped_value = @tail
+      @tail = second_to_last_node
+    else
+      popped_value = @tail
+      @head = nil
+      @tail = nil
+    end
+    popped_value
   end
-  
+
   def contains?(value)
     current_node = @head
     result = false
     while true
-      if current_node.data == value
+      if current_node.nil?
+        return false
+      elsif current_node.data == value
         result = true
-      end
-      if current_node.next != nil
-        current_node = current_node.next
-      else
         break
       end
+      current_node = current_node.next
     end
     result
   end
   
   def find(value)
+    current_node = @head
+    index = 0
+    while true
+      if current_node.nil?
+        return -1
+      elsif current_node.data == value
+        return index
+      else
+        index += 1
+        current_node = current_node.next
+      end
+    end
+    result
   end
   
   def to_s
@@ -103,5 +128,19 @@ class LinkedList
     end
   end
 
+  def insert_at(value, index)
+    if index == 0
+      self.prepend(value)
+    elsif index >= self.size
+      self.append(value)
+    else
+      before_node = self.at(index - 1)
+      old_node = self.at(index)
+      new_node = Node.new(value)
+  
+      before_node.next = new_node
+      new_node.next = old_node
+    end
+  end
 
 end
