@@ -19,6 +19,9 @@ The append method takes in a value you wish to store in the list, and it will:
 ## Size Method
 The size method will loop through the List and count the number of non-nil `@data` variables of each node. It returns the value of `size` which is an integer.
 
+## pop method
+This method removes and returns the last element of the list. However if the size of the list is 1, it will remove the element and set the list's `@head` and `@tail` to nil as the list no longer has any elements.
+
 ## Contains Method
 The contains method returns a boolean of true or false if the `value` argument is found in one of the `@data` Variables in any node in the list. The method loops through all nodes and changes a flag from false to true if any `@data` is `==` to `value`.
 
@@ -53,3 +56,10 @@ This method inserts a new node with `value` as the `@data` into the `index` of t
 
 1. If `index == 0` then the new node is `self.prepend(value)`
 2. If `index >= self.size` then the new node is `self.append(value)`
+
+## remove_at(index)
+This method removes the node in that index and rearranges the list. There are three edge cases which needs to be looked at carefully.
+
+1. `remove_at(0)` will affect the `@head` of that list. The `@head` tracks the node at index 0.
+2. If `index == self.size - 1` then a `self.pop` should suffice.
+3. If `index >= self.size` then return `nil` or message that index is grater than list size.
