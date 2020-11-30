@@ -143,4 +143,34 @@ class LinkedList
     end
   end
 
+  def remove_at(index)
+    removed = nil
+    if self.size == 0
+      puts "This is an empty list"
+      return nil
+    elsif index == 0
+      to_delete_node = @head
+      removed = to_delete_node
+      new_head = self.at(1)
+      to_delete_node.next = nil
+      @head = new_head
+      return removed
+
+    elsif index == self.size - 1
+      return self.pop
+    
+    elsif index >= self.size
+      puts "index greater than list size"
+      return nil
+
+    else
+      to_delete_node = self.at(index)
+      before_node = self.at(index - 1)
+      after_node = self.at(index + 1)
+
+      to_delete_node.next = nil
+      before_node.next = after_node
+      return to_delete_node
+    end
+  end
 end
