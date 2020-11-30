@@ -124,3 +124,31 @@ names.to_s
 puts "\nThis is after inserting Lion in index 1"
 names.insert_at("Lion", 1)
 names.to_s
+
+puts "\nRemoved at() tests:"
+puts "This is the current list"
+names.to_s
+
+puts "\nRemoved_at(0): should return Parrot"
+puts names.remove_at(0).data
+names.to_s
+
+puts "\nRemoved_at(8): should return Tlachache"
+puts names.remove_at(8).data
+names.to_s
+
+puts "\nRemoved_at(8): should return nil"
+puts names.remove_at(8)
+names.to_s
+
+puts "\nRemoved_at(3): should return Hyena"
+puts names.remove_at(3).data
+names.to_s
+
+puts "\nRemoved_at(5): should return Jen"
+puts names.remove_at(5).data
+names.to_s
+
+puts "\ninsert_at('Snake', 2)"
+names.insert_at('Snake', 2)
+names.to_s
